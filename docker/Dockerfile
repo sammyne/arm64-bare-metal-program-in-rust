@@ -7,7 +7,7 @@ RUN apt update                                           &&\
 
 ENV PATH=/root/.cargo/bin:$PATH
 
-RUN RUST_VERSION=nightly-2023-03-12                                               &&\
+RUN RUST_VERSION=nightly-2023-03-12                           &&\
   apt update                                                  &&\
   apt install -y curl                                         &&\
   apt install -y --reinstall systemd                          &&\
