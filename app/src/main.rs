@@ -1,11 +1,16 @@
 #![no_std]
 #![no_main]
 
-use core::{ptr, arch::global_asm};
-
-mod panic;
+use core::arch::global_asm;
+use core::panic::PanicInfo;
+use core::ptr;
 
 global_asm!(include_str!("start.s"));
+
+#[panic_handler]
+fn on_panic(_info: &PanicInfo) -> ! {
+    loop {}
+}
 
 #[no_mangle]
 pub extern "C" fn not_main() {
